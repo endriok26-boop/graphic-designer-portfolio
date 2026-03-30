@@ -186,23 +186,23 @@
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
     ════ FINE ISTRUZIONI ════ -->
 
-    <div class="wc wc-wide has-video" data-cat="motion" data-video="videoairbnb.mp4" data-title="Airbnb" data-label="Motion · Video · 2025" tabindex="0" role="button" aria-label="Apri il video Airbnb">
+    <div class="wc wc-wide has-video" data-cat="motion spot" data-video="videoairbnb.mp4" data-title="Airbnb" data-label="Motion · Spot · 2025" tabindex="0" role="button" aria-label="Apri il video Airbnb">
       <div class="wc-dev">VIDEO 1 — Airbnb</div>
       <div class="wc-bg">
         <video src="videoairbnb.mp4" loop muted playsinline autoplay style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
       </div>
       <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">AIRBNB<br/>VIDEO LOCALE</div></div>
-      <div class="wc-ov"><div class="ov-t">Airbnb</div><div class="ov-m">Motion · Video · 2025</div></div>
+      <div class="wc-ov"><div class="ov-t">Airbnb</div><div class="ov-m">Motion · Spot · 2025</div></div>
       <div class="wc-open">Apri video</div>
     </div>
 
-    <div class="wc wc-third has-video" data-cat="spot" data-video="videospotify.mp4" data-title="Spotify" data-label="Spot · Video · 2025" tabindex="0" role="button" aria-label="Apri il video Spotify">
+    <div class="wc wc-third has-video" data-cat="motion spot" data-video="videospotify.mp4" data-title="Spotify" data-label="Motion · Spot · 2025" tabindex="0" role="button" aria-label="Apri il video Spotify">
       <div class="wc-dev">VIDEO 2 — Spotify</div>
       <div class="wc-bg">
         <video src="videospotify.mp4" loop muted playsinline autoplay style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
       </div>
       <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">SPOT<br/>SPOTIFY</div></div>
-      <div class="wc-ov"><div class="ov-t">Spotify</div><div class="ov-m">Spot · Video · 2025</div></div>
+      <div class="wc-ov"><div class="ov-t">Spotify</div><div class="ov-m">Motion · Spot · 2025</div></div>
       <div class="wc-open">Apri video</div>
     </div>
 
@@ -286,7 +286,10 @@
   function fc(btn,cat){
     document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.wc').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none'});
+    document.querySelectorAll('.wc').forEach(c=>{
+      const cats=(c.dataset.cat||'').split(/\s+/).filter(Boolean);
+      c.style.display=(cat==='all'||cats.includes(cat))?'block':'none';
+    });
   }
   const modal=document.getElementById('video-modal');
   const modalVideo=document.getElementById('modal-video');
