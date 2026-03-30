@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Samuele Torino, CHI SONO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=DM+Sans:wght@200;300;400;500&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0c0f14;--ink2:#131720;--ink3:#1a2030;--surface:#1f2535;--teal:#4a9e9a;--teal2:#62bfba;--teal-dim:rgba(74,158,154,.14);--bone:#e8e2d9;--bone2:#f4f0ea;--muted:#6a7590;--mid:#9aa3b5;--border:#232b3d;--border2:rgba(74,158,154,.25);--fd:'Bodoni Moda',serif;--fb:'DM Sans',sans-serif;--fm:'Inconsolata',monospace;--ease:cubic-bezier(.77,0,.175,1)}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--fb);font-weight:300;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+.cursor{position:fixed;width:7px;height:7px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9995;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+.cursor-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(74,158,154,.45);border-radius:50%;pointer-events:none;z-index:9994;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+body.ch .cursor{width:16px;height:16px;background:rgba(74,158,154,.35)}
+body.ch .cursor-ring{width:42px;height:42px;border-color:var(--teal)}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;transition:padding .35s,background .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.sc{padding:15px 56px;background:rgba(12,15,20,.96);backdrop-filter:blur(14px);border-bottom-color:var(--border)}
+.nav-logo{font-family:var(--fd);font-size:20px;font-weight:900;letter-spacing:.08em;color:var(--bone);text-decoration:none}
+.nav-logo span{color:var(--teal)}
+.nav-links{list-style:none;display:flex;gap:36px}
+.nav-links a{font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s;cursor:none}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--bone2)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--bone)}
+.drawer{display:none;position:fixed;inset:0;background:var(--ink2);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.drawer.open{display:flex}
+.drawer a{font-family:var(--fd);font-size:38px;font-style:italic;color:var(--bone);text-decoration:none;cursor:none}
+.drawer a:hover{color:var(--teal2)}
+.drawer-close{position:absolute;top:28px;right:34px;background:none;border:none;color:var(--muted);font-size:26px;cursor:pointer}
+.ph{background:var(--ink2);padding:170px 56px 96px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.ph-bg{position:absolute;top:-40px;right:30px;font-family:var(--fd);font-weight:900;font-size:clamp(160px,22vw,300px);color:rgba(255,255,255,.025);line-height:1;user-select:none;pointer-events:none}
+.ph-bar{width:1px;height:70px;background:var(--teal);margin-bottom:34px}
+.ph h1{font-family:var(--fd);font-size:clamp(52px,7.5vw,100px);font-weight:700;line-height:.97;color:var(--bone)}
+.ph h1 em{font-style:italic;color:var(--teal2)}
+.ph-counter{margin-top:22px;font-family:var(--fm);font-size:10px;letter-spacing:.35em;color:var(--muted);text-transform:uppercase}
+.about-intro{padding:88px 56px 54px;border-bottom:1px solid var(--border)}
+.about-intro-inner{max-width:1400px;margin:0 auto}
+.about-statement{font-family:var(--fd);font-size:clamp(42px,7vw,96px);font-weight:400;line-height:.98;color:var(--bone2);max-width:1320px}
+.about-statement span{font-style:italic;color:var(--teal2)}
+.aw{max-width:1200px;margin:0 auto;padding:64px 56px 88px}
+.about-top{display:block;margin-bottom:88px}
+.photo-col{position:sticky;top:100px}
+.photo-frame{position:relative}
+.photo-box{width:100%;aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;line-height:1.9;position:relative;z-index:1;overflow:hidden}
+.photo-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid var(--border2);z-index:0}
+.ph-icon{font-size:38px;opacity:.15}
+.ph-note{font-family:var(--fm);font-size:9px;color:rgba(74,158,154,.45);padding:0 18px;line-height:1.9}
+.pinfo{margin-top:22px}
+.prow{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-family:var(--fm);font-size:10px}
+.plbl{letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.pval{color:var(--bone)}
+.text-col{padding-top:4px;width:100%}
+.eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--teal)}
+.about-hl{font-family:var(--fd);font-size:clamp(28px,3.2vw,42px);font-weight:400;font-style:italic;color:var(--bone2);line-height:1.3;margin-bottom:38px;padding-bottom:38px;border-bottom:1px solid var(--border)}
+.about-hl span{color:var(--teal2)}
+.about-p{font-size:16px;font-weight:300;line-height:1.95;color:var(--mid);margin-bottom:24px}
+.skills-box{margin:44px 0;background:var(--ink3);border:1px solid var(--border);border-left:3px solid var(--teal);padding:34px 38px}
+.sb-title{font-family:var(--fm);font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--teal);margin-bottom:22px}
+.sb-tags{display:flex;flex-wrap:wrap;gap:10px}
+.sbtag{font-family:var(--fm);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--bone);background:var(--surface);border:1px solid var(--border2);padding:7px 15px}
+.sbtag:hover{background:var(--teal-dim);border-color:var(--teal);color:var(--teal2)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:44px}
+.sc2{background:var(--ink2);padding:30px 22px;text-align:center}
+.sn{font-family:var(--fd);font-size:46px;font-weight:900;color:var(--teal2);line-height:1}
+.sl{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.approach{border-top:1px solid var(--border);padding-top:76px}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:44px;background:var(--border)}
+.ac{background:var(--ink2);padding:38px 34px;transition:background .3s}
+.ac:hover{background:var(--ink3)}
+.ac-n{font-family:var(--fd);font-size:34px;font-weight:900;color:rgba(74,158,154,.2);line-height:1;margin-bottom:14px}
+.ac-t{font-family:var(--fd);font-size:20px;font-style:italic;color:var(--bone);margin-bottom:10px}
+.ac-d{font-size:14px;color:var(--muted);line-height:1.8}
+.cta-band{background:var(--teal);padding:62px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:28px}
+.cta-t{font-family:var(--fd);font-size:30px;font-style:italic;color:var(--ink);font-weight:700}
+.btn-dark{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone);background:var(--ink);border:1.5px solid var(--ink);padding:15px 34px;text-decoration:none;transition:background .3s;cursor:none}
+.btn-dark:hover{background:var(--ink3)}
+footer{background:var(--ink2);border-top:2px solid var(--teal);padding:42px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:var(--fd);font-size:18px;font-weight:900;color:var(--bone)}
+.footer-logo span{color:var(--teal)}
+.footer-copy{font-family:var(--fm);font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.footer-links{display:flex;gap:22px}
+.footer-links a{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;cursor:none}
+.footer-links a:hover{color:var(--teal2)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.38s}
+@media(max-width:900px){
+  nav,nav.sc{padding:18px 22px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .ph{padding:120px 22px 72px}
+  .about-intro{padding:56px 22px 34px}
+  .about-statement{font-size:clamp(30px,10vw,54px);line-height:1.02}
+  .aw{padding:44px 22px 56px}
+  .about-top{margin-bottom:56px}
+  .photo-col{position:static}
+  .approach-grid{grid-template-columns:1fr}
+  .cta-band{padding:44px 22px;flex-direction:column;align-items:flex-start}
+  footer{padding:34px 22px;flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav id="nb">
+  <a class="nav-logo" href="index.html">S<span>.</span>T</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Chi Sono.html" class="active">Chi Sono</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="lavori.html">Lavori</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('dr').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="drawer" id="dr">
+  <button class="drawer-close" onclick="document.getElementById('dr').classList.remove('open')">&#x2715;</button>
+  <a href="index.html">Home</a>
+  <a href="Chi Sono.html">Chi Sono</a>
+  <a href="cv.html">CV</a>
+  <a href="lavori.html">Lavori</a>
+  <a href="contatti.html">Contatti</a>
+</div>
+
+<div class="ph">
+  <div class="ph-bg">CS</div>
+  <div class="ph-bar"></div>
+  <h1>Chi <em>Sono</em></h1>
+  <p class="ph-counter">About</p>
+</div>
+
+<section class="about-intro">
+  <div class="about-intro-inner">
+    <p class="about-statement d1">Aspirante videomaker con passione per il <span>motion design e la narrazione visiva.</span></p>
+  </div>
+</section>
+
+<div class="aw">
+  <div class="about-top">
+    <div class="text-col">
+      <div class="eyebrow rv">About me</div>
+      <p class="about-p rv d2">Mi chiamo Samuele Torino, ho 20 anni e vengo da Castelfranco Emilia. Fin da giovane sono rimasto affascinato dal potere dell'immagine in movimento: la capacità di raccontare una storia, evocare emozioni e comunicare un messaggio in pochi secondi mi ha spinto a dedicarmi completamente al mondo del video e del motion design.</p>
+      <p class="about-p rv">Ho maturato esperienza lavorando per youtuber e aziende, realizzando video promozionali, clip musicali e spot pubblicitari. Il mio punto di forza è Adobe After Effects: lo uso quotidianamente per creare animazioni e motion graphics che danno vita e carattere ai progetti.</p>
+      <p class="about-p rv">Sono una persona flessibile, autonoma e affidabile. So adattarmi rapidamente ai cambiamenti e gestire i progetti con professionalità, dal brief alla consegna finale.</p>
+
+      <div class="skills-box rv">
+        <div class="sb-title">Capacità &amp; Software</div>
+        <div class="sb-tags">
+          <span class="sbtag">After Effects</span>
+          <span class="sbtag">Adome Premiere</span>
+          <span class="sbtag">Sony Vegas</span>
+          <span class="sbtag">Photoshop</span>
+          <span class="sbtag">Illustrator</span>
+          <span class="sbtag">Motion Design</span>
+          <span class="sbtag">Blender</span>
+          <span class="sbtag">Color Grading</span>
+          <span class="sbtag">Spot pubblicitari</span>
+          <span class="sbtag">clip musicali</span>
+          <span class="sbtag">Animazioni 3D</span>
+          <span class="sbtag">Video Promozionale</span>
+        </div>
+      </div>
+
+      <div class="stats rv">
+        <div class="sc2"><div class="sn">3+</div><div class="sl">Anni di pratica</div></div>
+        <div class="sc2"><div class="sn">&#8734;</div><div class="sl">creatività</div></div>
+        <div class="sc2"><div class="sn">100%</div><div class="sl">affidabilità</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="approach rv">
+    <div class="eyebrow">Il mio metodo</div>
+    <h2 style="font-family:var(--fd);font-size:clamp(26px,3.2vw,42px);font-weight:400;color:var(--bone);margin-top:10px;">
+      Come <em style="font-style:italic;color:var(--teal2);">Lavoro</em>
+    </h2>
+    <div class="approach-grid">
+      <div class="ac rv">
+        <div class="ac-n">01</div>
+        <div class="ac-t">Brief &amp; Ideazione</div>
+        <div class="ac-d">Ascolto il cliente, comprendo gli obiettivi e sviluppo una visione creativa chiara prima di toccare qualsiasi software.</div>
+      </div>
+      <div class="ac rv d1">
+        <div class="ac-n">02</div>
+        <div class="ac-t">Produzione &amp; Riprese</div>
+        <div class="ac-d">Organizzo e gestisco il materiale video con attenzione alla composizione, alla luce e alla narrazione.</div>
+      </div>
+      <div class="ac rv d2">
+        <div class="ac-n">03</div>
+        <div class="ac-t">Post-Produzione</div>
+        <div class="ac-d">Montaggio professionale con Premiere o Vegas, motion graphics con After Effects, color grading e sound design.</div>
+      </div>
+      <div class="ac rv d3">
+        <div class="ac-n">04</div>
+        <div class="ac-t">Consegna &amp; Revisioni</div>
+        <div class="ac-d">Consegno nei formati richiesti, gestisco le revisioni con puntualità e cura fino alla piena soddisfazione.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band rv">
+  <p class="cta-t">Pronto a collaborare?</p>
+  <a href="contatti.html" class="btn-dark">scrivimi &#8594;</a>
+</div>
+
+<footer>
+  <div class="footer-logo">Samuele <span>Torino</span></div>
+  <div class="footer-copy">&#169; 2025 Samuele Torino &mdash; Tutti i diritti riservati</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="cv.html">CV</a>
+    <a href="contatti.html">Contatti</a>
+  </div>
+</footer>
+
+<script>
+var c=document.getElementById('cursor'),cr=document.getElementById('cursor-ring');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px'});
+(function lp(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(lp)})();
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('ch')});el.addEventListener('mouseleave',function(){document.body.classList.remove('ch')})});
+window.addEventListener('scroll',function(){document.getElementById('nb').classList.toggle('sc',window.scrollY>50)});
+var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>

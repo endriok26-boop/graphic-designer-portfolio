@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samuele Torino, LAVORI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=DM+Sans:wght@200;300;400;500&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--ink:#0c0f14;--ink2:#131720;--ink3:#1a2030;--surface:#1f2535;--surface2:#252d3e;--teal:#4a9e9a;--teal2:#62bfba;--teal-dim:rgba(74,158,154,.14);--bone:#e8e2d9;--bone2:#f4f0ea;--muted:#6a7590;--mid:#9aa3b5;--border:#232b3d;--border2:rgba(74,158,154,.25);--fd:'Bodoni Moda',serif;--fb:'DM Sans',sans-serif;--fm:'Inconsolata',monospace;--ease:cubic-bezier(.77,0,.175,1)}
+    html{scroll-behavior:smooth}
+    body{background:var(--ink);color:var(--bone);font-family:var(--fb);font-weight:300;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+    body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.5}
+    .cursor{position:fixed;width:7px;height:7px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9995;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+    .cursor-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(74,158,154,.45);border-radius:50%;pointer-events:none;z-index:9994;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+    body.ch .cursor{width:16px;height:16px;background:rgba(74,158,154,.35)}
+    body.ch .cursor-ring{width:42px;height:42px;border-color:var(--teal)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;transition:padding .35s,background .35s,border-color .35s;border-bottom:1px solid transparent}
+    nav.sc{padding:15px 56px;background:rgba(12,15,20,.96);backdrop-filter:blur(14px);border-bottom-color:var(--border)}
+    .nav-logo{font-family:var(--fd);font-size:20px;font-weight:900;letter-spacing:.08em;color:var(--bone);text-decoration:none}
+    .nav-logo span{color:var(--teal)}
+    .nav-links{list-style:none;display:flex;gap:36px}
+    .nav-links a{font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s;cursor:none}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+    .nav-links a:hover,.nav-links a.active{color:var(--bone2)}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:24px;height:1.5px;background:var(--bone)}
+    .drawer{display:none;position:fixed;inset:0;background:var(--ink2);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+    .drawer.open{display:flex}
+    .drawer a{font-family:var(--fd);font-size:38px;font-style:italic;color:var(--bone);text-decoration:none;transition:color .3s;cursor:none}
+    .drawer a:hover{color:var(--teal2)}
+    .drawer-close{position:absolute;top:28px;right:34px;background:none;border:none;color:var(--muted);font-size:26px;cursor:pointer}
+
+    .ph{background:var(--ink2);padding:170px 56px 96px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .ph-bg{position:absolute;top:-40px;right:30px;font-family:var(--fd);font-weight:900;font-size:clamp(160px,22vw,300px);color:rgba(255,255,255,.025);line-height:1;user-select:none;pointer-events:none}
+    .ph-bar{width:1px;height:70px;background:var(--teal);margin-bottom:34px}
+    .ph h1{font-family:var(--fd);font-size:clamp(52px,7.5vw,100px);font-weight:700;line-height:.97;color:var(--bone)}
+    .ph h1 em{font-style:italic;color:var(--teal2)}
+    .ph-counter{margin-top:22px;font-family:var(--fm);font-size:10px;letter-spacing:.35em;color:var(--muted);text-transform:uppercase}
+
+    /* FILTER */
+    .fbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 56px;display:flex;align-items:center;overflow-x:auto}
+    .flbl{font-family:var(--fm);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);padding:22px 28px 22px 0;border-right:1px solid var(--border);margin-right:14px;white-space:nowrap;flex-shrink:0}
+    .fbtn{font-family:var(--fm);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);background:none;border:none;padding:24px 20px;cursor:none;position:relative;transition:color .3s;white-space:nowrap}
+    .fbtn::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transition:transform .3s var(--ease)}
+    .fbtn:hover,.fbtn.active{color:var(--bone)}
+    .fbtn.active::after{transform:scaleX(1)}
+
+    /* INTRO */
+    .wi{padding:52px 56px 36px;max-width:680px}
+    .wi-t{font-family:var(--fd);font-size:20px;font-style:italic;color:var(--mid);line-height:1.6}
+    .wi-n{margin-top:12px;font-family:var(--fm);font-size:10px;letter-spacing:.15em;color:var(--muted)}
+    .wi-n strong{color:var(--teal)}
+
+    /* GRID */
+    .wo{padding:0 56px 80px}
+    .wg{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+    .wc-wide{grid-column:span 8}.wc-half{grid-column:span 6}.wc-third{grid-column:span 4}
+    .wc{position:relative;overflow:hidden;background:var(--surface);cursor:none}
+    .wc.has-video{cursor:pointer}
+    .wc-wide{aspect-ratio:16/8}.wc-half{aspect-ratio:16/10}.wc-third{aspect-ratio:4/3}
+    .wc-bg{position:absolute;inset:0;background:var(--ink3);transition:transform .65s var(--ease)}
+    .wc:hover .wc-bg{transform:scale(1.04)}
+    .wc-bg::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(74,158,154,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,158,154,.03) 1px,transparent 1px);background-size:30px 30px}
+    .wc-ph{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:20px}
+    .wcp-ring{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(74,158,154,.3);display:flex;align-items:center;justify-content:center;color:rgba(74,158,154,.5);font-size:18px;transition:border-color .3s,color .3s}
+    .wc:hover .wcp-ring{border-color:var(--teal);color:var(--teal2)}
+    .wcp-note{font-family:var(--fm);font-size:9px;letter-spacing:.15em;color:rgba(74,158,154,.4);line-height:1.9;max-width:180px}
+    .wc-dev{position:absolute;top:0;left:0;right:0;z-index:10;background:rgba(74,158,154,.07);border-bottom:1px dashed rgba(74,158,154,.22);font-family:var(--fm);font-size:8px;letter-spacing:.08em;color:rgba(74,158,154,.5);padding:5px 12px;line-height:1.6}
+    .wc-ov{position:absolute;inset:0;z-index:3;background:linear-gradient(to top,rgba(10,15,22,.92) 0%,rgba(10,15,22,.1) 60%,transparent 100%);opacity:0;transition:opacity .4s;display:flex;flex-direction:column;justify-content:flex-end;padding:26px 28px}
+    .wc:hover .wc-ov{opacity:1}
+    .ov-t{font-family:var(--fd);font-size:20px;font-style:italic;color:var(--bone2);margin-bottom:5px}
+    .ov-m{font-family:var(--fm);font-size:9px;letter-spacing:.22em;color:var(--teal2);text-transform:uppercase}
+    .wc-open{position:absolute;top:18px;right:18px;z-index:4;font-family:var(--fm);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone2);background:rgba(12,15,20,.72);border:1px solid rgba(255,255,255,.12);padding:9px 12px;opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .35s}
+    .wc.has-video:hover .wc-open{opacity:1;transform:none}
+
+    .vm{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:40px;background:rgba(7,10,15,.88);backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .3s ease}
+    .vm.open{opacity:1;pointer-events:auto}
+    .vm-panel{position:relative;width:min(1200px,100%);background:#000;border:1px solid rgba(255,255,255,.08);box-shadow:0 28px 80px rgba(0,0,0,.45)}
+    .vm-video{display:block;width:100%;max-height:80vh;background:#000}
+    .vm-close{position:absolute;top:-16px;right:-16px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:var(--ink2);color:var(--bone2);font-size:20px;cursor:pointer}
+    .vm-meta{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:16px 18px;background:var(--ink2);border-top:1px solid var(--border);flex-wrap:wrap}
+    .vm-title{font-family:var(--fd);font-size:24px;font-style:italic;color:var(--bone2)}
+    .vm-label{font-family:var(--fm);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal2)}
+
+    footer{background:var(--ink2);border-top:2px solid var(--teal);padding:42px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+    .footer-logo{font-family:var(--fd);font-size:18px;font-weight:900;color:var(--bone)}
+    .footer-logo span{color:var(--teal)}
+    .footer-copy{font-family:var(--fm);font-size:10px;letter-spacing:.18em;color:var(--muted)}
+    .footer-links{display:flex;gap:22px}
+    .footer-links a{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;cursor:none}
+    .footer-links a:hover{color:var(--teal2)}
+    .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+    .rv.vis{opacity:1;transform:none}
+
+    @media(max-width:1100px){.wc-wide{grid-column:span 12}.wc-half{grid-column:span 6}.wc-third{grid-column:span 6}}
+    @media(max-width:860px){
+      nav,nav.sc{padding:18px 22px}.nav-links{display:none}.hamburger{display:flex}
+      .ph{padding:120px 22px 72px}
+      .fbar{padding:0 22px}
+      .wi{padding:36px 22px 22px}
+      .wo{padding:0 22px 60px}
+      .vm{padding:18px}
+      .vm-close{top:10px;right:10px}
+      .vm-meta{padding:14px}
+      .vm-title{font-size:20px}
+      .wg{grid-template-columns:1fr}
+      .wc-wide,.wc-half,.wc-third{grid-column:span 1}
+      .wc-wide{aspect-ratio:16/9}.wc-half,.wc-third{aspect-ratio:16/10}
+      footer{padding:34px 22px;flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav id="nb">
+  <a class="nav-logo" href="index.html">L<span>.</span>I</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Chi sono.html">Chi Sono</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="lavori.html" class="active">Lavori</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('dr').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="drawer" id="dr">
+  <button class="drawer-close" onclick="document.getElementById('dr').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="Chi Sono.html">Chi Sono</a>
+  <a href="cv.html">CV</a>
+  <a href="lavori.html">Lavori</a>
+  <a href="contatti.html">Contatti</a>
+</div>
+
+<div class="ph">
+  <div class="ph-bg">LAV</div>
+  <div class="ph-bar"></div>
+  <h1>I miei <em>Lavori</em></h1>
+  <p class="ph-counter">Portfolio · 03 / 04</p>
+</div>
+
+<div class="fbar">
+  <span class="flbl">Filtra</span>
+  <button class="fbtn active" onclick="fc(this,'all')">Tutti</button>
+  <button class="fbtn" onclick="fc(this,'motion')">Motion</button>
+  <button class="fbtn" onclick="fc(this,'promo')">Promo</button>
+  <button class="fbtn" onclick="fc(this,'music')">Musica</button>
+  <button class="fbtn" onclick="fc(this,'spot')">Spot</button>
+</div>
+
+<div class="wi rv">
+  <p class="wi-t">Una selezione di progetti video tra motion design, promo, spot e contenuti creativi realizzati per brand, artisti e creator.</p>
+  <p class="wi-n">Editing e post-produzione in <strong>After Effects</strong> · <strong>Adobe Premiere</strong> · <strong>Sony Vegas</strong></p>
+</div>
+
+<div class="wo">
+  <div class="wg rv" id="wg">
+
+    <!-- ════ ISTRUZIONI VIDEO ════
+    Per ogni card, aggiungi il tuo contenuto DENTRO la div .wc-bg:
+
+    VIDEO LOCALE (.mp4):
+    <video src="assets/nome.mp4" loop muted playsinline autoplay
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
+
+    YOUTUBE:
+    <iframe src="https://www.youtube.com/embed/ID_VIDEO"
+      style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+      allowfullscreen></iframe>
+
+    VIMEO:
+    <iframe src="https://player.vimeo.com/video/ID_VIDEO"
+      style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+      allowfullscreen></iframe>
+
+    IMMAGINE:
+    <img src="assets/nome.jpg" alt="Titolo"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+    ════ FINE ISTRUZIONI ════ -->
+
+    <div class="wc wc-wide has-video" data-cat="motion" data-video="videoairbnb.mp4" data-title="Airbnb" data-label="Motion · Video · 2025" tabindex="0" role="button" aria-label="Apri il video Airbnb">
+      <div class="wc-dev">VIDEO 1 — Airbnb</div>
+      <div class="wc-bg">
+        <video src="videoairbnb.mp4" loop muted playsinline autoplay style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">AIRBNB<br/>VIDEO LOCALE</div></div>
+      <div class="wc-ov"><div class="ov-t">Airbnb</div><div class="ov-m">Motion · Video · 2025</div></div>
+      <div class="wc-open">Apri video</div>
+    </div>
+
+    <div class="wc wc-third has-video" data-cat="spot" data-video="videospotify.mp4" data-title="Spotify" data-label="Spot · Video · 2025" tabindex="0" role="button" aria-label="Apri il video Spotify">
+      <div class="wc-dev">VIDEO 2 — Spotify</div>
+      <div class="wc-bg">
+        <video src="videospotify.mp4" loop muted playsinline autoplay style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">SPOT<br/>SPOTIFY</div></div>
+      <div class="wc-ov"><div class="ov-t">Spotify</div><div class="ov-m">Spot · Video · 2025</div></div>
+      <div class="wc-open">Apri video</div>
+    </div>
+
+    <div class="wc wc-third has-video" data-cat="promo" data-video="videonakk.mp4" data-title="Nakk" data-label="Promo · Video · 2025" tabindex="0" role="button" aria-label="Apri il video Nakk">
+      <div class="wc-dev">VIDEO 3 — Nakk</div>
+      <div class="wc-bg">
+        <video src="videonakk.mp4" loop muted playsinline autoplay style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">PROMO<br/>NAKK</div></div>
+      <div class="wc-ov"><div class="ov-t">Nakk</div><div class="ov-m">Promo · Video · 2025</div></div>
+      <div class="wc-open">Apri video</div>
+    </div>
+
+    <div class="wc wc-third" data-cat="music">
+      <div class="wc-dev">PROGETTO 4 — Clip musicale</div>
+      <div class="wc-bg"></div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">CLIP MUSICALE<br/>IN ARRIVO</div></div>
+      <div class="wc-ov"><div class="ov-t">Clip Musicale</div><div class="ov-m">Musica · In arrivo</div></div>
+    </div>
+
+
+    <div class="wc wc-half" data-cat="promo">
+      <div class="wc-dev">PROGETTO 6 — Promo creator</div>
+      <div class="wc-bg"></div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">VIDEO PROMO<br/>IN ARRIVO</div></div>
+      <div class="wc-ov"><div class="ov-t">Promo Creator</div><div class="ov-m">Promo · In arrivo</div></div>
+    </div>
+
+    <div class="wc wc-third" data-cat="motion">
+      <div class="wc-dev">PROGETTO 7 — Motion graphics</div>
+      <div class="wc-bg"></div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">MOTION GRAPHICS<br/>IN ARRIVO</div></div>
+      <div class="wc-ov"><div class="ov-t">Motion Graphics</div><div class="ov-m">Motion · In arrivo</div></div>
+    </div>
+
+    <div class="wc wc-third" data-cat="spot">
+      <div class="wc-dev">PROGETTO 8 — Spot pubblicitario</div>
+      <div class="wc-bg"></div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">SPOT<br/>IN ARRIVO</div></div>
+      <div class="wc-ov"><div class="ov-t">Spot Pubblicitario</div><div class="ov-m">Spot · In arrivo</div></div>
+    </div>
+
+    <div class="wc wc-third" data-cat="music">
+      <div class="wc-dev">PROGETTO 9 — Performance live</div>
+      <div class="wc-bg"></div>
+      <div class="wc-ph"><div class="wcp-ring">▶</div><div class="wcp-note">LIVE SESSION<br/>IN ARRIVO</div></div>
+      <div class="wc-ov"><div class="ov-t">Performance Live</div><div class="ov-m">Musica · In arrivo</div></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="vm" id="video-modal" aria-hidden="true">
+  <div class="vm-panel">
+    <button class="vm-close" id="video-close" aria-label="Chiudi video">✕</button>
+    <video class="vm-video" id="modal-video" controls playsinline></video>
+    <div class="vm-meta">
+      <div class="vm-title" id="modal-title">Video</div>
+      <div class="vm-label" id="modal-label">Portfolio</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Samuele <span>Torino</span></div>
+  <div class="footer-copy">© 2025 Samuele Torino — Tutti i diritti riservati</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="cv.html">CV</a><a href="contatti.html">Contatti</a>
+  </div>
+</footer>
+
+<script>
+  const cur=document.getElementById('cursor'),curR=document.getElementById('cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'))});
+  window.addEventListener('scroll',()=>document.getElementById('nb').classList.toggle('sc',scrollY>50));
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+  function fc(btn,cat){
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.wc').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none'});
+  }
+  const modal=document.getElementById('video-modal');
+  const modalVideo=document.getElementById('modal-video');
+  const modalTitle=document.getElementById('modal-title');
+  const modalLabel=document.getElementById('modal-label');
+  const closeVideo=()=>{
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    modalVideo.pause();
+    modalVideo.removeAttribute('src');
+    modalVideo.load();
+  };
+  const openVideo=card=>{
+    modalVideo.src=card.dataset.video;
+    modalTitle.textContent=card.dataset.title||'Video';
+    modalLabel.textContent=card.dataset.label||'Portfolio';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    modalVideo.play().catch(()=>{});
+  };
+  document.querySelectorAll('.wc.has-video').forEach(card=>{
+    card.addEventListener('click',()=>openVideo(card));
+    card.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){
+        e.preventDefault();
+        openVideo(card);
+      }
+    });
+  });
+  document.getElementById('video-close').addEventListener('click',closeVideo);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeVideo()});
+</script>
+</body>
+</html>

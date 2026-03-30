@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Samuele Torino, CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=DM+Sans:wght@200;300;400;500&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0c0f14;--ink2:#131720;--ink3:#1a2030;--surface:#1f2535;--surface2:#252d3e;--teal:#4a9e9a;--teal2:#62bfba;--bone:#e8e2d9;--bone2:#f4f0ea;--muted:#6a7590;--mid:#9aa3b5;--border:#232b3d;--border2:rgba(74,158,154,.25);--fd:'Bodoni Moda',serif;--fb:'DM Sans',sans-serif;--fm:'Inconsolata',monospace;--ease:cubic-bezier(.77,0,.175,1)}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--fb);font-weight:300;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+.cursor{position:fixed;width:7px;height:7px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9995;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+.cursor-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(74,158,154,.45);border-radius:50%;pointer-events:none;z-index:9994;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+body.ch .cursor{width:16px;height:16px;background:rgba(74,158,154,.35)}
+body.ch .cursor-ring{width:42px;height:42px;border-color:var(--teal)}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;transition:padding .35s, background .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.sc{padding:15px 56px;background:rgba(12,15,20,.96);backdrop-filter:blur(14px);border-bottom-color:var(--border)}
+.nav-logo{font-family:var(--fd);font-size:20px;font-weight:900;letter-spacing:.08em;color:var(--bone);text-decoration:none}
+.nav-logo span{color:var(--teal)}
+.nav-links{list-style:none;display:flex;gap:36px}
+.nav-links a{font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s;cursor:none}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--bone2)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--bone)}
+.drawer{display:none;position:fixed;inset:0;background:var(--ink2);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.drawer.open{display:flex}
+.drawer a{font-family:var(--fd);font-size:38px;font-style:italic;color:var(--bone);text-decoration:none;cursor:none}
+.drawer a:hover{color:var(--teal2)}
+.drawer-close{position:absolute;top:28px;right:34px;background:none;border:none;color:var(--muted);font-size:26px;cursor:pointer}
+.ph{background:var(--ink3);padding:170px 56px 96px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.ph-bg{position:absolute;top:-40px;right:30px;font-family:var(--fd);font-weight:900;font-size:clamp(160px,22vw,300px);color:rgba(255,255,255,.025);line-height:1;user-select:none;pointer-events:none}
+.ph-bar{width:1px;height:70px;background:var(--teal);margin-bottom:34px}
+.ph h1{font-family:var(--fd);font-size:clamp(52px,7.5vw,100px);font-weight:700;line-height:.97;color:var(--bone)}
+.ph h1 em{font-style:italic;color:var(--teal2)}
+.ph-counter{margin-top:22px;font-family:var(--fm);font-size:10px;letter-spacing:.35em;color:var(--muted);text-transform:uppercase}
+.dl-bar{background:var(--surface);border-bottom:2px solid var(--teal);padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.dl-lbl{font-family:var(--fm);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.dl-desc{font-family:var(--fd);font-size:18px;font-style:italic;color:var(--bone)}
+.btn-teal{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--teal);border:1.5px solid var(--teal);padding:14px 32px;text-decoration:none;transition:background .3s,color .3s;cursor:none}
+.btn-teal:hover{background:transparent;color:var(--teal2)}
+.cw{max-width:1160px;margin:0 auto;padding:88px 56px}
+.cv-cols{display:grid;grid-template-columns:1.6fr 1fr}
+.cv-main{padding-right:64px;border-right:1px solid var(--border)}
+.cv-side{padding-left:52px}
+.cv-block{margin-bottom:64px}
+.blk-eye{font-family:var(--fm);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.blk-title{font-family:var(--fd);font-size:26px;font-style:italic;color:var(--bone);margin-bottom:34px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.prof-box{background:var(--ink3);border:1px solid var(--border);border-left:3px solid var(--teal);padding:30px 34px;margin-bottom:40px}
+.prof-lbl{font-family:var(--fm);font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.prof-txt{font-family:var(--fd);font-size:17px;font-style:italic;color:var(--bone2);line-height:1.6}
+.info-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:44px}
+.is-cell{background:var(--ink2);padding:16px 18px}
+.is-lbl{font-family:var(--fm);font-size:9px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+.is-val{font-size:14px;color:var(--bone);font-weight:300}
+.tl{position:relative;padding:0 0 36px 28px;border-left:1.5px solid var(--border);margin-left:6px}
+.tl::before{content:'';position:absolute;top:7px;left:-6px;width:10px;height:10px;border-radius:50%;background:var(--ink);border:2px solid var(--muted);transition:border-color .3s}
+.tl:hover::before{border-color:var(--teal);background:var(--teal)}
+.tl:last-child{padding-bottom:0}
+.tl-yr{font-family:var(--fm);font-size:10px;letter-spacing:.18em;color:var(--teal);margin-bottom:6px}
+.tl-role{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--bone2);margin-bottom:4px}
+.tl-place{font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+.tl-bul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tl-bul li{font-size:13px;font-weight:300;color:var(--mid);line-height:1.7;padding-left:16px;position:relative}
+.tl-bul li::before{content:'--';position:absolute;left:0;color:var(--teal)}
+.tl-desc{font-size:13px;font-weight:300;color:var(--mid);line-height:1.75}
+.ski{margin-bottom:20px}
+.sk-h{display:flex;justify-content:space-between;margin-bottom:8px}
+.sk-n{font-family:var(--fm);font-size:11px;letter-spacing:.12em;color:var(--bone)}
+.sk-l{font-family:var(--fm);font-size:10px;color:var(--teal)}
+.sk-t{height:2px;background:var(--surface2);position:relative}
+.sk-f{position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,var(--teal),var(--teal2));width:0;transition:width 1.3s var(--ease)}
+.soft-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;font-weight:300;color:var(--mid)}
+.soft-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.lang-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+.lang-n{font-family:var(--fd);font-size:17px;font-style:italic;color:var(--bone)}
+.lang-l{font-family:var(--fm);font-size:10px;letter-spacing:.15em;color:var(--teal)}
+footer{background:var(--ink2);border-top:2px solid var(--teal);padding:42px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:var(--fd);font-size:18px;font-weight:900;color:var(--bone)}
+.footer-logo span{color:var(--teal)}
+.footer-copy{font-family:var(--fm);font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.footer-links{display:flex;gap:22px}
+.footer-links a{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;cursor:none}
+.footer-links a:hover{color:var(--teal2)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.12s}
+@media(max-width:900px){
+  nav,nav.sc{padding:18px 22px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .ph{padding:120px 22px 72px}
+  .cw{padding:56px 22px}
+  .cv-cols{grid-template-columns:1fr}
+  .cv-main{padding-right:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:56px;margin-bottom:56px}
+  .cv-side{padding-left:0}
+  .dl-bar{padding:20px 22px;flex-direction:column;align-items:flex-start}
+  footer{padding:34px 22px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav id="nb">
+  <a class="nav-logo" href="index.html">S<span>.</span>T</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Chi sono.html">Chi Sono</a></li>
+    <li><a href="cv.html" class="active">CV</a></li>
+    <li><a href="lavori.html">Lavori</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('dr').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="drawer" id="dr">
+  <button class="drawer-close" onclick="document.getElementById('dr').classList.remove('open')">&#x2715;</button>
+  <a href="index.html">Home</a>
+  <a href="Chi Sono.html">Chi Sono</a>
+  <a href="cv.html">CV</a>
+  <a href="lavori.html">Lavori</a>
+  <a href="contatti.html">Contatti</a>
+</div>
+
+<div class="ph">
+  <div class="ph-bg">CV</div>
+  <div class="ph-bar"></div>
+  <h1>Curriculum <em>Vitae</em></h1>
+  <p class="ph-counter">CV &middot; 02 / 04</p>
+</div>
+
+<div class="dl-bar">
+  <div>
+    <div class="dl-lbl">Scarica il CV completo</div>
+    <div class="dl-desc">Samuele Torino &mdash; Videomaker &amp; Motion Designer</div>
+  </div>
+  <a href="asset/document_pdf.pdf" download="CV.pdf" class="btn-teal">&#8595;&nbsp; Scarica PDF</a>
+</div>
+
+<div class="cw">
+  <div class="cv-cols">
+
+    <div class="cv-main">
+      <div class="cv-block rv">
+        <div class="prof-box">
+          <div class="prof-lbl">Profilo professionale</div>
+          <p class="prof-txt">Aspirante videomaker con varie esperienze lavorative nel settore. Competenze nell'utilizzo di vari software di post-produzione e avanzate nell'utilizzo di Adobe After Effects, specialmente nel Motion Design e nella produzione di spot pubblicitari.</p>
+        </div>
+        <div class="info-strip">
+          <div class="is-cell"><div class="is-lbl">Data di nascita</div><div class="is-val">21 Aprile 2006</div></div>
+          <div class="is-cell"><div class="is-lbl">Residenza</div><div class="is-val">41013, Castelfranco Emilia(MO)</div></div>
+          <div class="is-cell"><div class="is-lbl">Telefono</div><div class="is-val">+39 324 557 6255</div></div>
+          <div class="is-cell"><div class="is-lbl">Email</div><div class="is-val">svmu.video@gmail.com</div></div>
+          <div class="is-cell"><div class="is-lbl">Patente di guida</div><div class="is-val">B</div></div>
+          <div class="is-cell"><div class="is-lbl">Disponibilit&agrave;</div><div class="is-val">Felssibilità oraria</div></div>
+        </div>
+      </div>
+
+      <div class="cv-block rv">
+        <div class="blk-eye">Esperienze</div>
+        <div class="blk-title">Percorso Professionale</div>
+        <div class="tl">
+          <div class="tl-yr">Feb 2025 &mdash; Ott 2025</div>
+          <div class="tl-role">Addetto al Controllo Qualità</div>
+          <div class="tl-place">Pizzi &amp; Corradi &middot; San Giovanni in Persiceto</div>
+          <ul class="tl-bul">
+            <li>Controllo dei prodotti verificandone la conformità ai livelli di qualità richiesti.</li>
+            <li>Compilazione delle schede di controllo.</li>
+            <li>Gestione delle non conformità secondo le procedure stabilite.</li>
+          </ul>
+        </div>
+        <div class="tl">
+          <div class="tl-yr">Esperienza continuativa</div>
+          <div class="tl-role">Videomaker</div>
+          <div class="tl-place">Da remoto &middot; Castelfranco Emilia</div>
+          <ul class="tl-bul">
+            <li>Ideazione ed elaborazione di video promozionali.</li>
+            <li>Creazione di video corporate, istituzionali, clip musicali e spot pubblicitari.</li>
+            <li>Organizzazione e realizzazione del montaggio con Adobe Premiere e Sony Vegas.</li>
+            <li>Organizzazione e realizzazione del montaggio con Adobe After Effects.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-block rv">
+        <div class="blk-eye">Formazione</div>
+        <div class="blk-title">Istruzione &amp; Corsi</div>
+        <div class="tl">
+          <div class="tl-yr">2019 &mdash; 2024</div>
+          <div class="tl-role">Diploma di Maturità</div>
+          <div class="tl-place">I.I.S. Archimede &middot; San Giovanni in Persiceto</div>
+          <div class="tl-desc">Indirizzo: Elettronica e Elettrotecnica</div>
+        </div>
+        <div class="tl">
+          <div class="tl-yr">2025</div>
+          <div class="tl-role">Corso di Motion Graphic </div>
+          <div class="tl-place">Corso base e avanzato su After Effects</div>
+          <div class="tl-desc">Formazione specializzata in Motion Design e animazione con Adobe After Effects, dalla base al livello avanzato.</div>
+        </div>
+        <div class="tl">
+          <div class="tl-yr">2025</div>
+          <div class="tl-role">Workshop di Fotografia e Regia</div>
+          <div class="tl-place">Scuola di fotografia di Milano &middot; Milano</div>
+          <div class="tl-desc">Workshop intensivo di 18 ore su fotografia professionale e regia video.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-side">
+      <div class="cv-block rv">
+        <div class="blk-eye">Competenze</div>
+        <div class="blk-title">Software</div>
+        <div class="ski"><div class="sk-h"><span class="sk-n">Adobe After Effects</span><span class="sk-l">Avanzato</span></div><div class="sk-t"><div class="sk-f" data-w="100"></div></div></div>
+        <div class="ski"><div class="sk-h"><span class="sk-n">Adobe Premier Pro</span><span class="sk-l">Avanzato</span></div><div class="sk-t"><div class="sk-f" data-w="88"></div></div></div>
+        <div class="ski"><div class="sk-h"><span class="sk-n">Sony Vegas Pro</span><span class="sk-l">Avanzato</span></div><div class="sk-t"><div class="sk-f" data-w="95"></div></div></div>
+        <div class="ski"><div class="sk-h"><span class="sk-n">Adobe Photoshop</span><span class="sk-l">Competente</span></div><div class="sk-t"><div class="sk-f" data-w="82"></div></div></div>
+        <div class="ski"><div class="sk-h"><span class="sk-n">Blender</span><span class="sk-l">Competente</span></div><div class="sk-t"><div class="sk-f" data-w="74"></div></div></div>
+      </div>
+
+      <div class="cv-block rv">
+        <div class="blk-eye">Soft Skills</div>
+        <div class="blk-title">Caratteristiche</div>
+        <div class="soft-item">Capacità di gestione del cambiamento</div>
+        <div class="soft-item">Flessibilità oraria</div>
+        <div class="soft-item">Autonomia operativa</div>
+        <div class="soft-item">Affidabilità</div>
+        <div class="soft-item">Creatività e visione artistica</div>
+        <div class="soft-item">Attenzione ai dettagli</div>
+        <div class="soft-item">Rispetto delle scadenze</div>
+      </div>
+
+      <div class="cv-block rv">
+        <div class="blk-eye">Lingue</div>
+        <div class="blk-title">Competenze Linguistiche</div>
+        <div class="lang-item"><span class="lang-n">Italiano</span><span class="lang-l">Madrelingua</span></div>
+        <div class="lang-item"><span class="lang-n">Inglese</span><span class="lang-l">B2 &mdash; Intermedio superiore</span></div>
+      </div>
+
+      <div style="padding-top:32px;border-top:1px solid var(--border)">
+        <p style="font-family:var(--fm);font-size:9px;letter-spacing:.1em;color:var(--muted);line-height:1.8">
+Autorizzo il trattamento dei miei dati personali ai sensi dell'art. 13 del D. Lgs. 196/2003 e dell'art. 13 GDPR (Regolamento UE 2016/679) ai fini della ricerca e selezione del personale.        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Samuele <span>Torino</span></div>
+  <div class="footer-copy">&#169; 2025 Samuele Torino &mdash; Tutti i diritti riservati</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="Chi Sono.html">Chi Sono</a>
+    <a href="contatti.html">Contatti</a>
+  </div>
+</footer>
+
+<script>
+var c=document.getElementById('cursor'),cr=document.getElementById('cursor-ring');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px'});
+(function lp(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(lp)})();
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('ch')});el.addEventListener('mouseleave',function(){document.body.classList.remove('ch')})});
+window.addEventListener('scroll',function(){document.getElementById('nb').classList.toggle('sc',window.scrollY>50)});
+var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){ro.observe(el)});
+var fills=document.querySelectorAll('.sk-f');
+var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.style.width=e.target.getAttribute('data-w')+'%';obs.unobserve(e.target)}})},{threshold:.3});
+fills.forEach(function(f){obs.observe(f)});
+</script>
+</body>
+</html>
